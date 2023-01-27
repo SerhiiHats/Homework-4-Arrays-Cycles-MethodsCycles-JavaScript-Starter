@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+</head>
+<body>
+    <pre>
+        Завдання:
+        Дано масив. Створіть на основі значень цього масиву два нових масиву. В один масив помістіть усі парні значення, а в другий усі непарні.
+        Виведіть на екран значення, які увійшли до першого масиву та другого масиву.
+    </pre>
+    <script>
+        let values = [10, 20, 5, 7, 11, 8, 125, 4, 8, 3, 23];
+        let arrayOfEven = [];
+        let arrayOfOdd = [];
+
+        for(let i = 0; i < values.length; i++){
+            if ((values[i] & 1) == 0) {
+                arrayOfEven.push(values[i]);
+            } else {
+                arrayOfOdd.push(values[i]);
+            }
+        }
+
+        console.log("Масив парних значень");
+        for(let i = 0; i < arrayOfEven.length; i++){
+            console.log(arrayOfEven[i]);
+        } 
+        
+        console.log(""); //пробел
+
+        console.log("Масив непарних значень");
+        for(let i = 0; i < arrayOfOdd.length; i++){
+            console.log(arrayOfOdd[i]);
+        }
+
+    </script>
+</body>
+</html>

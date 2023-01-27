@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 8</title>
+</head>
+
+<body>
+<pre>
+        Завдання:
+        Дано масив цілих чисел. Перевірте, чи є в ньому однакові елементи. Якщо є, виведіть їх на екран.
+    </pre>
+<script>
+    let values = [10, 20, 4, 6, 11, 9, 125, 125, 10, 8, 3, 5, 89, 12, 46, 0, 77, 3];
+
+    /**легкий варіант який знайде однакові елементи у массиві за кількістю циклів проходів по массиву, що дорівнює довжині масиву,
+     має недоліки, які ще слід буде вирішувати**/
+
+    // for (let i = 0; i < values.length; i++) {
+    //     for (let j = i + 1; j < values.length; j++) {
+    //         if (values[i] == values[j]) {
+    //             console.log("однакові елементи: " + values[j]);
+    //         }
+    //     }
+    // }
+
+
+    /**оптімізований варіант який знайде однакові елементи у массиві за один прохід по массиву**/
+
+    // let tempValues = values.slice(0, values.length);
+    // for (let i = 0; i < values.length; i++) {
+    //     tempValues[i] = null;
+    //     let j = tempValues.indexOf(values[i]);
+    //     if (j != -1) {
+    //         console.log("однакові елементи: array[" + i + "] = " + values[i]);
+    //     }
+    //     while (j != -1) {
+    //         console.log("однакові елементи: array[" + j + "] = " + values[j]);
+    //         tempValues[j] = null;
+    //         j = tempValues.indexOf(values[i]);
+    //     }
+    // }
+
+    /**ще оптимізованіший варіант, який знайде однакові елементи у массиві за один прохід по массиву, за ще меншу кількість операцій ніж попередні варіанти**/
+
+    let tempValues = values.slice(0, values.length);
+
+    for (let i = values.length -1; i >= 0; i--) {
+
+        let j = tempValues.indexOf(values[i]);
+
+        if (j !== -1 && j !== i) {
+            console.log("однакові елементи: array[" + i + "] = " + values[i]);
+            tempValues[i] = null;
+        }
+
+        while (j !== -1 && j !== i) {
+            console.log("однакові елементи: array[" + j + "] = " + values[j]);
+            tempValues[j] = null;
+            j = tempValues.indexOf(values[i]);
+        }
+    }
+
+</script>
+</body>
+
+</html>

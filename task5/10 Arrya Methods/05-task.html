@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 5</title>
+</head>
+
+<body>
+<pre>
+        Завдання:
+        Перепішіть код так, щоб значення для масиву count задавались користувачем.
+        Порахуйте вартість покупок. Виведіть скільки було витрачено на кожен продукт окремо і скільки витрачено загалом.
+    </pre>
+<script>
+    // назви товарів
+    let names = [];
+    names[0] = "Папір офісний А4, 80 г/м2, 500 л";
+    names[1] = "Біндери для паперу 51 мм";
+    names[2] = "Ручка кулькова синя";
+
+    // ціни на товар
+    let prices = [];
+    prices[0] = 280.25; // Папір офісний А4 А4, 80 г/м2, 500 л
+    prices[1] = 56;     // Біндери для паперу 51 мм
+    prices[2] = 12.50;  // Ручка кулькова синя
+
+    let count = [];
+    // count[0] = 2;   // Папір офісний А4, 80 г/м2, 500 л
+    // count[1] = 10;  // Біндери для паперу 51 мм
+    // count[2] = 10;  // Ручка кулькова синя
+
+    let tepmCount;
+    let totalPrice = 0;
+
+    for (let i = 0; i < names.length; i++) {
+        tepmCount = +prompt(`Товар: '${names[i]}' вартість за од.: ${prices[i]} $. \nВкажіть кількість яку бажаєте придбати`)
+        if (isNaN(tepmCount)) {
+            alert("Введене значення не є кількістю, та не було прийнято. \nСпробуйте ще раз!");
+            i--;
+            continue;
+        }
+        count[i] = tepmCount;
+    }
+
+    for (let i = 0; i < names.length; i++) {
+        let priceWithCount = prices[i] * count[i];
+        totalPrice += priceWithCount;
+        console.log(`На продукт: '${names[i]}' вартістю: ${prices[i]} $ та кількістю: ${count[i]}, було витрачено: ${priceWithCount} $`);
+    }
+    console.log(`Загальна вартість усіх покупок складає: ${totalPrice} $`);
+
+</script>
+</body>
+
+</html>
